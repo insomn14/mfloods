@@ -1,0 +1,25 @@
+# Source code
+src/
+Cargo.toml
+Cargo.lock
+
+# Build artifacts
+target/
+*.rs
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
