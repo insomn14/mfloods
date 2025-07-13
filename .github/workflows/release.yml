@@ -1,0 +1,94 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        target: [x86_64-unknown-linux-gnu, x86_64-apple-darwin, x86_64-pc-windows-msvc]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: ${{ matrix.target }}
+
+    - name: Build
+      run: cargo build --release --target ${{ matrix.target }}
+
+    - name: Prepare binary name
+      id: binary_name
+      run: |
+        if [ "${{ matrix.os }}" = "windows-latest" ]; then
+          echo "name=mfloods-windows-x86_64.exe" >> $GITHUB_OUTPUT
+        elif [ "${{ matrix.os }}" = "macos-latest" ]; then
+          echo "name=mfloods-macos-x86_64" >> $GITHUB_OUTPUT
+        else
+          echo "name=mfloods-linux-x86_64" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Upload binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ steps.binary_name.outputs.name }}
+        path: target/${{ matrix.target }}/release/mfloods*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          mfloods-*
+        body: |
+          ## HTTP Request Flooder (mfloods) Release
+
+          ### What's New
+          - High-performance HTTP request flooding tool
+          - Multi-threading support for concurrent requests
+          - Proxy support (HTTP, HTTPS, SOCKS5)
+          - SSL certificate verification options
+          - Real-time progress tracking
+          - Connection pooling for resource efficiency
+
+          ### Quick Start
+          1. Download the binary for your platform
+          2. Make it executable: `chmod +x mfloods`
+          3. Create a request file
+          4. Run: `./mfloods -num 100 -th 4 request.txt`
+
+          ### Usage Examples
+          ```bash
+          # Basic usage
+          ./mfloods request.txt
+
+          # Load testing
+          ./mfloods -num 1000 -th 8 -log info request.txt
+
+          # With proxy
+          ./mfloods -num 100 -th 4 -proxy http://127.0.0.1:8080 request.txt
+
+          # With SSL bypass
+          ./mfloods -insecure -proxy http://127.0.0.1:8080 request.txt
+          ```
+
+          ### Security Notice
+          This tool is for testing purposes only. Use responsibly and only on systems you own or have permission to test.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
