@@ -23,3 +23,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# other
+RELEASE_NOTES.md
+build-release.sh
+build-simple.sh
+request.txt
