@@ -1,8 +1,12 @@
-# HTTP Request Flooder (mfloods)
+# mfloods: HTTP Request Flooder (Binaries & Documentation)
 
-A high-performance HTTP request flooding tool written in Rust, designed for load testing and stress testing web applications.
+**This repository contains only the compiled binaries and documentation for the `mfloods` HTTP request flooding tool. The full source code is maintained in a separate private repository.**
 
-## Features
+---
+
+## About
+
+`mfloods` is a high-performance HTTP request flooding tool written in Rust, designed for load testing and stress testing web applications.
 
 - 🚀 **High Performance**: Built with Rust for maximum speed and efficiency
 - 🔄 **Parallel Processing**: Configurable multi-threading for concurrent requests
@@ -12,6 +16,17 @@ A high-performance HTTP request flooding tool written in Rust, designed for load
 - 📝 **Flexible Input**: Raw HTTP request files for complete control
 - 🎯 **Connection Pooling**: Efficient connection management to prevent resource exhaustion
 - 📈 **Detailed Logging**: Multiple log levels for debugging and monitoring
+
+---
+
+## Project Structure & Source Code
+
+- **This repository (`mfloods`)**: Contains only the compiled binaries (in the `release/` directory) and documentation for public distribution.
+- **Source code repository (`mfloods-src`)**: The full Rust source code is maintained in a separate, private repository. If you are interested in contributing or reviewing the source, please contact the maintainer.
+
+> **Note:** The source code is not included here for distribution purposes. This split helps keep the public release focused on easy-to-use binaries, while development and contributions are managed privately.
+
+---
 
 ## Quick Start
 
@@ -34,6 +49,8 @@ Download the latest release for your platform from the [Releases](https://github
 # With SSL bypass for proxy
 ./mfloods -insecure -proxy http://127.0.0.1:8080 request.txt
 ```
+
+---
 
 ## Command Line Options
 
@@ -69,6 +86,8 @@ Connection: keep-alive
 {"key": "value"}
 ```
 
+---
+
 ## Use Cases
 
 ### Load Testing
@@ -92,12 +111,16 @@ Connection: keep-alive
 ./mfloods -insecure -proxy http://127.0.0.1:8080 request.txt
 ```
 
+---
+
 ## Performance Features
 
 - **Connection Pooling**: Reuses connections to reduce overhead
 - **Resource Management**: Automatic cleanup of idle connections
 - **Concurrency Control**: Limits concurrent connections to prevent resource exhaustion
 - **Timeout Protection**: Prevents hanging requests from consuming resources
+
+---
 
 ## Security Notice
 
@@ -107,28 +130,28 @@ Connection: keep-alive
 - Always respect rate limits and terms of service
 - Do not use for malicious purposes
 
+---
+
 ## Building from Source
 
-If you want to build from source (not included in this repository):
+> **Source code is not included in this repository.**
+>
+> If you wish to build from source, please refer to the private development repository or contact the maintainer for access.
 
-```bash
-git clone <source-repo>
-cd mfloods
-cargo build --release
-```
+---
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
+
 ## Contributing
 
-This repository contains only the compiled binaries and documentation. For source code contributions, please refer to the main development repository.
-
-## Support
-
-For issues, questions, or feature requests, please open an issue on GitHub.
+For source code contributions, please refer to the main development repository. This repository does not accept code contributions.
 
 ---
 
-**Note**: This repository contains only the compiled binaries and documentation. The source code is not included for distribution purposes. 
+## Support
+
+For issues, questions, or feature requests, please open an issue on GitHub. 
