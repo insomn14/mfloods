@@ -154,4 +154,17 @@ For source code contributions, please refer to the main development repository. 
 
 ## Support
 
-For issues, questions, or feature requests, please open an issue on GitHub. 
+For issues, questions, or feature requests, please open an issue on GitHub.
+
+---
+
+## Buy Me a Coffee ☕
+
+If you find this tool useful and would like to support its development, consider buying me a coffee!
+
+**Bitcoin Address:**
+```
+bitcoin:1c5ANBcxzs5HK5daQ3C7nYbvSwVbQvdh5
+```
+
+Your support helps keep this project maintained and improved. Thank you! 🙏 
