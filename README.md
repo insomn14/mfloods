@@ -1,5 +1,14 @@
 # mfloods: HTTP Request Flooder (Binaries & Documentation)
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-v1.0.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Language-Rust-orange.svg" alt="Language">
+  <img src="https://img.shields.io/badge/Platform-Cross%20Platform-green.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/Performance-High%20Speed-blue.svg" alt="Performance">
+  <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="License">
+  <img src="https://img.shields.io/badge/Proxy-Supported-purple.svg" alt="Proxy Support">
+</p>
+
 **This repository contains only the compiled binaries and documentation for the `mfloods` HTTP request flooding tool. The full source code is maintained in a separate private repository.**
 
 ---
